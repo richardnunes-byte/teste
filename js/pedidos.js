@@ -444,6 +444,15 @@ filtroStatus.addEventListener("change", listarPedidos)
 filtroPagamento.addEventListener("change", listarPedidos)
 ordenarPedidos.addEventListener("change", listarPedidos)
 
+// Ao clicar em qualquer link do menu, recarrega os selects e a lista de pedidos,
+// porque clientes, produtos e pedidos podem ter mudado em outra seção
+for (let link of document.querySelectorAll(".link-menu")) {
+    link.addEventListener("click", function () {
+        atualizarSelects()
+        listarPedidos()
+    })
+}
+
 // Desenha tudo uma vez ao abrir a página
 atualizarSelects()
 desenharCarrinho()
